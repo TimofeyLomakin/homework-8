@@ -63,15 +63,23 @@ class FeedFragment : Fragment() {
                     .show()
             }
         }
-        viewModel.data.observe(viewLifecycleOwner) { state ->
-            adapter.submitList(state.posts)
-            binding.emptyText.isVisible = state.empty
+
+        viewModel.newerCount.observe(viewLifecycleOwner) { count ->
+            if (count > 0) {
+                binding.newer.visibility = View.VISIBLE
+            } else {
+                binding.newer.visibility = View.GONE
+            }
         }
 
-        binding.newer.setOnClickListener {
-            binding.list.smoothScrollToPosition(0)
-            viewModel.showNewPosts()
-            binding.newer.visibility = View.GONE
+        viewModel.data.observe(viewLifecycleOwner) { state ->
+            adapter.submitList(state.posts)
+            binding.newer.setOnClickListener {
+                binding.list.smoothScrollToPosition(0)
+                viewModel.showNewPosts()
+                binding.newer.visibility = View.GONE
+            }
+            binding.emptyText.isVisible = state.empty
         }
 
         binding.swiperefresh.setOnRefreshListener {

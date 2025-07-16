@@ -9,6 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/newer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardElevation="8dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/newer"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
         <TextView
             android:id="@+id/emptyText"
             android:layout_width="wrap_content"
@@ -57,27 +78,6 @@
         android:focusable="true"
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_add_24dp" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/newer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="?attr/colorPrimary"
-        app:cardElevation="8dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@string/newer"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"/>
-
-    </com.google.android.material.card.MaterialCardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
